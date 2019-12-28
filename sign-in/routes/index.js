@@ -39,7 +39,7 @@ router.use(passport.session());
 router.get('/', function(req, res, next) {
 	if(req.user){
 		var name = req.user.displayName;
-		var picture = req.user._json.image.url;
+		var picture = req.user.photos[0].value;
 		res.render('index', { name: name, picture: picture });
 	}
 	else {
